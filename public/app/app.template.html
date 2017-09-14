@@ -1,0 +1,176 @@
+<!-- <div> -->
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+<div class="container">
+
+  <div class="income-container">
+    <div class="tableTitle">
+      <h3 class="center">Income</h3>
+
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>One-Time</th>
+              <th>Monthly</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in $ctrl.itemsIncome">
+              <td>{{item.name}}</td>
+              <td>$ {{item.once}}</td>
+              <td>$ {{item.monthly}}</td>
+              <td>
+                <button type="button" class="btn btn-primary btn-sm delete-button" ng-click="$ctrl.deleteItem($ctrl.itemsIncome, item)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      <div class="center">
+        <form nonvalidate name="$ctrl.formIncome" class="form-inline" ng-submit="$ctrl.addItem($ctrl.itemsIncome, $ctrl.newItemsIncome)">
+          <div class="item-name">
+            <label for="name"></label>
+            <div class="inputs">
+              <input id="name" name="name" type="text" class="form-control" placeholder="Item" ng-model="$ctrl.newItemsIncome.name">
+            </div>
+          </div>
+
+        <div class ="item-name">
+          <label for="once"></label>
+            <div class="inputs">
+              <input id="once" name="once" type="number" class="form-control" placeholder="One-Time" ng-model="$ctrl.newItemsIncome.once" min="0" step="0.01" data-number-to-fixed="2">
+            </div>
+        </div>
+
+        <div class="item-name">
+          <label for="monthly"></label>
+            <div class="inputs">
+              <input id="monthly" name="monthly" type="number" class="form-control" placeholder="Monthly" ng-model="$ctrl.newItemsIncome.monthly" required minLength="1" min="0" step="0.01" data-number-to-fixed="2">
+            </div>
+        </div>
+          <button type="submit" class="btn btn-primary btn-sm newItem-button" ng-disabled="$ctrl.formIncome.$invalid">AddRevenue Item</button>
+      </form>
+    </div>
+
+      </div>
+    </div>
+  </div>
+
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <div class="container">
+    <div class="tableTitle">
+      <h3 class="center">Expenses</h3>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>One-Time</th>
+              <th>Monthly</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="hover" ng-repeat="item in $ctrl.itemsExpenses">
+              <td>{{item.name}}</td>
+              <td>$ {{item.once}}</td>
+              <td>$ {{item.monthly}}</td>
+              <td>
+                <button type="button" class="btn btn-primary btn-sm delete-button" ng-click="$ctrl.deleteItem($ctrl.itemsExpenses, item)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      <div class="center">
+        <form nonvalidate name="$ctrl.formExpenses" class="form-inline" ng-submit="$ctrl.addItem($ctrl.itemsExpenses, $ctrl.newItemsExpenses)">
+          <div class="item-name">
+            <label form="name"></label>
+              <input id="name" name="name" type="text" class="form-control" placeholder="Item" ng-model="$ctrl.newItemsExpenses.name">
+          </div>
+          <div class="item-name">
+            <label for="once"></label>
+              <div class="inputs">
+                <input id="once" name="once" type="number" class="form-control" placeholder="One-Time" ng-model="$ctrl.newItemsExpenses.once" required minlength="1" min="0" step="0.01" data-number-to-fixed="2">
+              </div>
+          </div>
+          <div class="item-name">
+            <label for="once"></label>
+              <div class="inputs">
+                <input id="monthly" name="monthly" type="number" class="form-control" placeholder="Monthly" ng-model="$ctrl.newItemsExpenses.monthly" required minlength="1" min="0" step="0.01" data-number-to-fixed="2">
+              </div>
+          </div>
+            <button type="submit" class="btn btn-primary btn-sm newItem-button"  ng-disabled="$ctrl.formExpenses.$invalid">Add Expense Item</button>
+        </form>
+      </div>
+      </div>
+    </div>
+  </div>
+<!-- </div>   -->
+
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <div class="container">
+    <div class="tableTitle">
+      <h3 class="center">Revenue Total</h3>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>One-Time</th>
+              <th>Monthly</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>$ {{$ctrl.onceSumIncome}}</td>
+              <td>$ {{$ctrl.monthlyIncome}}</td>
+              <td>$ {{$ctrl.totalRevenue}}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <div class="tableTitle">
+      <h3 class="center">Expenses Total</h3>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>One-Time</th>
+              <th>Monthly</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>$ {{$ctrl.onceSumExpenses}}</td>
+              <td>$ {{$ctrl.monthlyExpenses}}</td>
+              <td>$ {{$ctrl.totalExpenses}}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <div class="container">
+    <div class="tableTitle">
+      <h3 class="center">Contributions</h3>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Monthly Contribution Profit</th>
+              <th>Total Contribution Profit</th>
+              <th>Contriubution Margin</th>
+              <th>Capital ROI (months)</th>
+            </tr>
+          </thead>
+          <tbody>
+              <td class="col-sm-3">  ${{$ctrl.monthlyContributionProfit}}
+              <td class="col-sm-3">  ${{$ctrl.totalContributionProfit}}</td>
+              <td class="col-sm-3">  {{$ctrl.totalContributionMargin}}%</td>
+              <td class="col-sm-3"> {{$ctrl.totalCapitalRoi}} months</td>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
