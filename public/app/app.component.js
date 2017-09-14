@@ -15,6 +15,7 @@
       vm.newItemsIncome = {};
       vm.newItemsExpenses = {};
 
+// Add pre-populated values
       vm.itemsIncome = [
         {
           name: 'Item 1',
@@ -49,6 +50,7 @@
       vm.calculateData();
     }
 
+// Calculate
     vm.calculateData = () => {
       vm.onceSumIncome = vm.sumTotal(vm.itemsIncome, 'once');
       vm.monthlyIncome = vm.sumTotal(vm.itemsIncome, 'monthly');
@@ -63,7 +65,8 @@
       vm.totalContributionMargin = vm.contributionMargin();
       vm.totalCapitalRoi = vm.capitalRoi();
     }
-    //
+
+//Add new items
     vm.addItem = (array, newItem) => {
       if (newItem === vm.newItemsIncome) {
         vm.itemsIncome.push(vm.newItemsIncome);
@@ -75,6 +78,7 @@
       vm.calculateData();
     }
 
+//Delete items
     vm.deleteItem = (array, item) => {
       var result = 0;
       for (let i=0; i<array.length; i++) {
@@ -86,6 +90,7 @@
       vm.calculateData();
     }
 
+//Total
     vm.sumTotal = (array, times) => {
       var result = 0;
       for(let i=0; i<array.length; i++) {
@@ -94,18 +99,22 @@
       return result;
     }
 
+//Yearly total
     vm.total = (num, num2) => {
       return num + (num2 * 12);
     }
 
+//Calculate monthly contribution
     vm.monthlyContribution = () => {
       return vm.monthlyIncome - vm.monthlyExpenses;
     }
 
+//Calculate contribution profit
     vm.contriubtionProfit = () => {
       return vm.totalRevenue - vm.totalExpenses;
     }
 
+//Calculate contribution margin
     vm.contributionMargin = () => {
       if (vm.totalRevenue == 0) {
         return 0;
@@ -113,6 +122,7 @@
         return (vm.totalContributionProfit/vm.totalRevenue *100).toFixed(0);
     }
 
+//Calculate capital ROI
     vm.capitalRoi = () => {
       if (vm.monthlyContributionProfit == 0) {
         return 0;
