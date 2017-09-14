@@ -1,8 +1,8 @@
-<!-- <div> -->
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-<div class="container">
+<!-- <div class="container"> -->
 
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <div class="income-container">
     <div class="tableTitle">
       <h3 class="center">Income</h3>
@@ -48,16 +48,15 @@
               <input id="monthly" name="monthly" type="number" class="form-control" placeholder="Monthly" ng-model="$ctrl.newItemsIncome.monthly" required minLength="1" min="0" step="0.01" data-number-to-fixed="2">
             </div>
         </div>
-          <button type="submit" class="btn btn-primary btn-sm newItem-button" ng-disabled="$ctrl.formIncome.$invalid">AddRevenue Item</button>
+        <button type="submit" class="btn btn-primary btn-sm newItem-button" ng-disabled="$ctrl.formIncome.$invalid">Add Revenue Item</button>
       </form>
-    </div>
-
+      </div>
       </div>
     </div>
   </div>
 
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-  <div class="container">
+  <div class="expenses-container">
     <div class="tableTitle">
       <h3 class="center">Expenses</h3>
         <table class="table table-hover">
@@ -104,7 +103,7 @@
       </div>
     </div>
   </div>
-<!-- </div>   -->
+
 
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <div class="container">
@@ -173,4 +172,5 @@
     </div>
   </div>
 
+<!-- </div> -->
 </div>

@@ -67,6 +67,21 @@
 
       vm.calculateData();
     }
+
+    vm.calculateData = () => {
+      vm.onceSumIncome = vm.sumTotal(vm.itemsIncome, 'once');
+      vm.monthlyIncome = vm.sumTotal(vm.itemsIncome, 'monthly').toFixed(2);
+      vm.totalRevenue = vm.total(vm.onceSumIncome, vm.monthlyIncome).toFixed(2);
+
+      vm.onceSumExpenses = vm.sumTotal(vm.itemsExpenses, 'once');
+      vm.monthlyExpenses = vm.sumTotal(vm.itemsExpenses, 'monthly').toFixed(2);
+      vm.totalExpenses = vm.total(vm.onceSumExpenses, vm.monthlyExpenses).toFixed(2);
+
+      vm.monthlyContributionProfit = vm.monthlyContribution().toFixed(2);
+      vm.totalContributionProfit = vm.contriubtionProfit().toFixed(2);
+      vm.totalContributionMargin = vm.contributionMargin();
+      vm.totalCapitalRoi = vm.capitalRoi();
+    }
     //
     vm.addItem = (array, newItem) => {
       if (newItem === vm.newItemsIncome) {
@@ -130,20 +145,7 @@
         return ((vm.onceSumExpenses - vm.onceSumIncome) / vm.monthlyContributionProfit).toFixed(1);
     }
     //
-    vm.calculateData = () => {
-      vm.onceSumIncome = vm.sumTotal(vm.itemsIncome, 'once');
-      vm.monthlyIncome = vm.sumTotal(vm.itemsIncome, 'monthly').toFixed(2);
-      vm.totalRevenue = vm.total(vm.onceSumIncome, vm.monthlyIncome).toFixed(2);
 
-      vm.onceSumExpenses = vm.sumTotal(vm.itemsExpenses, 'once');
-      vm.monthlyExpenses = vm.sumTotal(vm.itemsExpenses, 'monthly').toFixed(2);
-      vm.totalExpenses = vm.total(vm.onceSumExpenses, vm.monthlyExpenses).toFixed(2);
-
-      vm.monthlyContributionProfit = vm.monthlyContribution().toFixed(2);
-      vm.totalContributionProfit = vm.contriubtionProfit().toFixed(2);
-      vm.totalContributionMargin = vm.contributionMargin();
-      vm.totalCapitalRoi = vm.capitalRoi();
-    }
 
 
   }

@@ -34,6 +34,10 @@ body {
 	text-align: center;
 }
 
+.item-name {
+	/*display: inline-block;*/
+	display: inline-block;
+}
 
 
 .delete-button {
@@ -49,6 +53,8 @@ body {
 
 .newItem-button {
 	background-color: rgba(18, 67, 46, .7);
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .newItem-button:hover {
