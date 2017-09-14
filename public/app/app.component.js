@@ -103,7 +103,6 @@
     }
 
     vm.contriubtionProfit = () => {
-      console.log(vm.totalRevenue - vm.totalExpenses);
       return vm.totalRevenue - vm.totalExpenses;
     }
 
