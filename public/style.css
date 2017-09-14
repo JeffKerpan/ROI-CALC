@@ -16,6 +16,10 @@ body {
 	align-content: center;
 }
 
+.nav-hover:hover {
+	color: rgba(150, 184, 196, 1) !important;
+}
+
 .center-nav  {
 	font-weight: bolder;
 	font-size: 1.75em;
